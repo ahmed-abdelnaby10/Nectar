@@ -13,7 +13,6 @@ import SignUp from './components/SignUp';
 import ForgetPass from './components/ForgetPass';
 import Home from './components/home/Home';
 import Product from './components/home/Product';
-import Footer from './components/Footer';
 import Explore from './components/explore/Explore';
 import Cart from './components/cart/Cart';
 import Favourites from './components/favorites/Favourites';
@@ -36,7 +35,7 @@ function App() {
       )
     }
   return (
-    <div className='tab:border tab:border-solid tab:border-e2 tab:rounded-md relative pb-20 dark:bg-slate-700'>
+    <div className='tab:border tab:border-solid tab:border-e2 tab:rounded-md relative dark:bg-slate-700'>
       <Routes>
         <Route path='/' element={<Welcome/>}/>
         <Route path='/sign-in' element={<SignIn/>}/>
@@ -58,7 +57,6 @@ function App() {
         <Route path='/home/search/:cateTitle' element={<SearchedProducts/>}/>
         <Route path='/home/search/:cateTitle/:searchedProductTitle' element={<Product/>}/>
       </Routes>
-      <Footer/>
     </div>
   )
 }

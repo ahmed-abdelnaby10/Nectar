@@ -11,6 +11,7 @@ import { addToCart } from "../../rtk/slices/cart-slice"
 import UpdateFavorite from "../favorites/UpdateFavorite"
 import { products } from "../../utils/products"
 import ProductQuantity from "./ProductQuantity"
+import Footer from "../Footer"
 
 export default function Product() {
     const dispatch = useDispatch()
@@ -46,7 +47,7 @@ export default function Product() {
         })
     },[product, productTitle, searchedProductTitle])
     return (
-        <div className="flex items-center justify-start flex-col">
+        <div className="flex items-center justify-start flex-col pb-24">
             <div className="bg-sec-color dark:bg-slate-600 bottom-raduis w-full pt-5 h-72 pb-10 flex flex-col items-center">
                 <div className="flex items-center justify-between px-5 dark:text-white text-txt-main text-2xl w-full">
                     <button onClick={()=>navigate(-1)}><FaAngleLeft/></button>
@@ -68,6 +69,7 @@ export default function Product() {
                     dispatch(addToCart(product))
                 }}>Add To Basket</button>
             </div>
+            <Footer/>
         </div>
     )
 }

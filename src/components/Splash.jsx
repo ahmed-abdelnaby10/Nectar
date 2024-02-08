@@ -2,7 +2,7 @@ import splash from "../assests/splash.png"
 
 export default function SplashScreen() {
     return (
-        <div className="w-full bg-main dark:bg-purple-500 flex items-center justify-center h-850">
+        <div className="w-full bg-main dark:bg-purple-500 flex items-center justify-center h-screen">
             <div className="flex gap-5 items-center justify-center w-fit h-fit text-white">
                 <img src={splash} alt='carrot' className="h-16 w-14" />
                 <div className="h-16 w-fit">

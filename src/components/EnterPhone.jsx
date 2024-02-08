@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function EnterPhone() {
     const [value, setValue] = useState()
     return (
-        <div className="flex flex-col items-start px-5 relative h-850 main-page">
+        <div className="flex flex-col items-start px-5 relative h-screen main-page">
             <Link to="/sign-in"><FaAngleLeft className="text-txt-main text-2xl mb-16 mt-10"/></Link>
             <h1 className="text-txt-main text-2xl font-semibold mb-7">Enter your mobile number</h1>
             <p className="text-7c text-base font-semibold mb-5">Mobile Number</p>

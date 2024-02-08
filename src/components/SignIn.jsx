@@ -9,9 +9,9 @@ export default function SignIn() {
     const navigate = useNavigate();
     const [value, setValue] = useState()
     return (
-        <div className='h-850 flex flex-col items-center justify-between w-full main-page'>
+        <div className='h-screen flex flex-col items-center justify-between w-full main-page'>
             <img src={signin} alt="veg" className='w-full h-5/12' />
-            <form onSubmit={(e)=> e.preventDefault()} className='flex flex-col items-center py-10 px-5 w-full h-7/12 gap-5'>
+            <form onSubmit={(e)=> e.preventDefault()} className='flex flex-col items-center px-5 w-full h-7/12 gap-5'>
                 <label htmlFor="phone" className='text-txt-main font-semibold text-2xl self-start mb-1.5'>Get your groceries <br />with nectar</label>
                 <PhoneInput
                     placeholder="Enter phone number"
@@ -24,7 +24,7 @@ export default function SignIn() {
                     }}
                     defaultCountry="JO"
                 />
-                <p className='text-82 text-sm font-semibold my-5'>Or connect with social media</p>
+                <p className='text-82 text-sm font-semibold'>Or connect with social media</p>
                 <button className='flex items-center justify-center cursor-pointer rounded-3xl h-btn w-full text-fc gap-10 text-sm tracking-wider font-semibold bg-btn'>
                     <FaGoogle className='text-2xl'/>
                     Continue with Google

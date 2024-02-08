@@ -9,12 +9,13 @@ import Legumes from "./Legumes";
 import { groceries } from "../../utils/groceries";
 import { useNavigate } from 'react-router-dom';
 import ThemeSwitcher from "../ThemeSwitcher";
+import Footer from "../Footer";
 
 export default function Home() {
     const navigate = useNavigate();
     return (
-        <div className="px-5 flex flex-col items-center mb-20">
-            <img src={carrot} alt="carrot" className="mt-10 w-5 tab:w-10 tab:mb-2.5"/>
+        <div className="px-5 flex flex-col items-center pb-24">
+            <img src={carrot} alt="carrot" className="mt-5 w-5 tab:w-10 tab:mb-2.5"/>
             <div className="flex gap-1.5 mt-1 items-center justify-center w-fit h-fit text-txt-main/70 dark:text-white text-lg font-medium">
                 <FaLocationDot/> Dhaka, Banassre <ThemeSwitcher/>
             </div>
@@ -29,6 +30,7 @@ export default function Home() {
             <ProductsSwiper title="Best Selling" data={bestSelling}/>
             <Legumes/>
             <ProductsSwiper title="Groceries" data={groceries}/>
+            <Footer/>
         </div>
     )
 }

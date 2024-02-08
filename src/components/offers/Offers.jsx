@@ -6,7 +6,7 @@ import { bestSelling } from "../../utils/bestSelling"
 import { groceries } from "../../utils/groceries"
 import { FaAngleLeft } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
-
+import Footer from "../Footer"
 
 export default function Offers() {
     const navigate = useNavigate()
@@ -24,12 +24,13 @@ export default function Offers() {
         }
     },[])
     return (
-        <div className="flex flex-col items-center justify-start gap-5 px-5 py-8">
+        <div className="flex flex-col items-center justify-start gap-5 px-5 pt-5 pb-24">
             <div className="flex items-center justify-center relative w-full">
                 <button className="absolute center-y left-0 text-2xl" onClick={()=>navigate(-1)}><FaAngleLeft/></button>
                 <h1 className="text-lg text-txt-main font-semibold capitalize dark:text-white">{offerTitle}</h1>
             </div>
             <ProductsCards data={data}/>
+            <Footer/>
         </div>
     )
 }

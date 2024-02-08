@@ -10,10 +10,11 @@ import { GoBell } from "react-icons/go";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { BsExclamationCircle } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
+import Footer from "../Footer";
 
 export default function Account() {
     return (
-        <div className="flex flex-col items-center justify-start gap-5 pt-5 w-full pb-5">
+        <div className="flex flex-col items-center justify-start gap-5 pt-5 w-full pb-24">
             <div className="flex items-center justify-start gap-5 w-full px-5">
                 <div className="w-16 h-16 rounded-full overflow-hidden">
                     <img src={avatar} alt="avatar" />
@@ -85,6 +86,7 @@ export default function Account() {
                 Log out
                 <FiLogOut className="absolute text-2xl center-y left-5"/>
             </button>
+            <Footer/>
         </div>
     )
 }

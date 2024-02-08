@@ -7,15 +7,15 @@ export default function SignUp() {
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
     return (
-        <div className='main-page flex flex-col items-center pt-20 px-5 h-850'>
+        <div className='main-page flex flex-col items-center pt-10 px-5 h-screen'>
             <img src={carrot} alt="carrot" className='w-12 h-14' />
             <form onSubmit={(e)=>{
                 e.preventDefault()
                 navigate("/home")
-            }} className='w-full flex flex-col items-start mt-20'>
+            }} className='w-full flex flex-col items-start mt-10'>
                 <h1 className='text-txt-main text-2xl font-semibold'>Sign Up</h1>
                 <p className='text-7c text-base'>Enter your credentials to continue</p>
-                <div className="flex flex-col items-start w-full mt-10">
+                <div className="flex flex-col items-start w-full mt-5">
                     <label htmlFor="name" className="text-7c text-base font-medium">Username</label>
                     <input type="text" id='name' autoComplete="name" placeholder="Enter your username" className="placeholder:text-7c placeholder:text-xs focus:outline-none bg-transparent w-full h-10 border-b border-solid border-e2 pb-1 text-txt-main text-lg"/>
                 </div>

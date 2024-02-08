@@ -4,6 +4,7 @@ import { reversePay } from "../../rtk/slices/payment-slice";
 import shoppingCart from "../../assests/shoppingcart.png"
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import Footer from "../Footer";
 
 export default function Cart() {
     const cartProducts = useSelector((state)=> state.cart)
@@ -17,7 +18,7 @@ export default function Cart() {
         setSubTotal(price)
     },[cartAmount])
     return (
-        <div className="flex flex-col items-center justify-between gap-5 py-5 min-h-555">
+        <div className="flex flex-col items-center justify-between gap-5 pt-5 pb-24 min-h-screen">
             <div className="w-full flex flex-col items-center justify-start grow gap-5 h-full">
                 <h1 className="text-lg text-txt-main dark:text-white font-semibold">My Cart</h1>
                 {
@@ -55,6 +56,7 @@ export default function Cart() {
                 Go to Checkout
                 <div className="absolute center-y right-5 w-fit h-fit px-2 py-1 rounded-md text-white text-xs font-semibold bg-green-700 dark:bg-purple-700">${(subTotal).toFixed(2)}</div>
             </button>
+            <Footer/>
         </div>
     )
 }

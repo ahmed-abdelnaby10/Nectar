@@ -10,7 +10,7 @@ export default function Failed() {
                 <p className='text-7c dark:text-e2 text-sm'>Something went tembly wrong.</p>
             </div>
             <div className='flex flex-col items-center gap-2.5 w-full mt-10'>
-                <Link to="" className='flex bg-main dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center tracking-widest'>Pleases try again</Link>
+                <Link to="/home/cart" className='flex bg-main dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center tracking-widest'>Pleases try again</Link>
                 <Link to="/home" className='text-txt-main dark:text-white text-base font-semibold'>Back to home</Link>
             </div>
         </div>

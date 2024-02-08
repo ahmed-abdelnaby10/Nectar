@@ -2,7 +2,9 @@ import { Link, useParams } from "react-router-dom"
 import { products } from "../../utils/products"
 import { FaAngleLeft } from "react-icons/fa"
 import { IoFilterSharp } from "react-icons/io5";
-import ProductsCards from "./ProductsCards"
+import ProductsCards from "./ProductsCards";
+import Footer from "../Footer"
+
 export default function SearchedProducts() {
     const { cateTitle } = useParams()
     const cateProducts = products.filter((product)=>product.category === cateTitle)
@@ -14,6 +16,7 @@ export default function SearchedProducts() {
                 <IoFilterSharp className="text-2xl text-txt-main dark:text-white"/>
             </div>
             <ProductsCards data={cateProducts}/>
+            <Footer/>
         </div>
     )
 }

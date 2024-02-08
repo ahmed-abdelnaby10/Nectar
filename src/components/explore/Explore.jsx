@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsCards from "./ProductsCards";
 import { TbColorFilter } from "react-icons/tb";
+import Footer from "../Footer";
 
 export default function Explore() {
     const [inputText, setInputText] = useState("");
@@ -49,7 +50,7 @@ export default function Explore() {
         }
     }
     return (
-        <div className="flex flex-col items-center justify-start pt-5 px-5 pb-10 min-h-555">
+        <div className="flex flex-col items-center justify-start pt-5 px-5 pb-10 min-h-screen">
             <h1 className="text-lg text-txt-main dark:text-white font-semibold">Find Products</h1>
             <div className="relative w-full h-fit mt-5 mb-5">
                 <IoSearchOutline className="text-txt-main dark:text-white text-2xl absolute left-2.5 center-y" onClick={()=>{document.getElementById("search").focus()}}/>
@@ -58,7 +59,7 @@ export default function Explore() {
                     setCate("")
                 }}/>        
                 <TbColorFilter className="text-main dark:text-purple-500 text-xl absolute right-2.5 center-y" onClick={()=>{
-                    setShowFilter(true)
+                    setShowFilter(!showFilter)
                     setShowProducts(false)
                 }}/>
             </div>
@@ -142,6 +143,7 @@ export default function Explore() {
                 :
                 ""
             }
+            <Footer/>
         </div>
     )
 }

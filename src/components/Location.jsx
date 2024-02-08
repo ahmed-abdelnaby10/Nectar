@@ -6,16 +6,16 @@ import locationImg from "../assests/location.png"
 export default function Location() {
     const navigate = useNavigate()
     return (
-        <div className="main-page px-5 flex flex-col items-center h-850">
-            <Link to="/sign-in/enter-phone" className="self-start"><FaAngleLeft className="text-txt-main text-2xl mb-16 mt-10"/></Link>
+        <div className="main-page px-5 flex flex-col items-center h-screen">
+            <Link to="/sign-in/enter-phone" className="self-start"><FaAngleLeft className="text-txt-main text-2xl mt-5"/></Link>
             <img src={locationImg} alt="GPS-Module-Pic" />
-            <div className="flex flex-col items-center gap-2.5 mt-10 mb-16">
+            <div className="flex flex-col items-center gap-2.5 mt-2.5 mb-5">
                 <h2 className="text-txt-main text-2xl font-semibold text-center">Select Your Location</h2>
                 <p className="text-7c text-base font-medium text-center">Switch on your location to stay in tune with what’s happening in your area</p>
                 <form onSubmit={(e)=>{
                     e.preventDefault()
                     navigate('/login')
-                    }} className="w-full flex flex-col items-start gap-5 mt-24">
+                    }} className="w-full flex flex-col items-start gap-5 mt-5">
                     <div className="flex flex-col items-start w-full">
                         <label htmlFor="zone" className="text-7c text-base font-semibold">Your Zone</label>
                         <div className="w-full h-fit relative">

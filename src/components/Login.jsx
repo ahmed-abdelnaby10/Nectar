@@ -6,7 +6,7 @@ export default function Login() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
     return (
-        <div className='main-page flex flex-col items-center pt-20 px-5 h-850'>
+        <div className='main-page flex flex-col items-center pt-20 px-5 h-screen'>
             <img src={carrot} alt="carrot" className='w-12 h-14' />
             <form onSubmit={(e)=>{
                 e.preventDefault()

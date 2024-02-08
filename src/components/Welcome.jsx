@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export default function Welcome() {
     return (
-        <div className="flex items-end justify-center bg-center bg-cover px-5 pb-20 h-850 tab:bg-top" style={{backgroundImage: `url(${welcome})`}}>
+        <div className="flex items-end justify-center bg-center bg-cover px-5 pb-20 h-screen tab:bg-top" style={{backgroundImage: `url(${welcome})`}}>
             <div className="flex flex-col items-center gap-5 text-white">
                 <img src={carrot} alt="carrot" className="w-12 h-14" />
                 <h1 className="text-center text-5xl font-medium">Welcome <br />to our store</h1>

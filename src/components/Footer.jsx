@@ -16,7 +16,7 @@ export default function Footer() {
                     <CiShop className="text-2xl"/>
                     Shop
                 </Link>
-                <Link to="/home/search" className={`${currentRoute.endsWith("search")? "text-main dark:text-purple-300" : "text-txt-main dark:text-white"} flex flex-col items-center justify-center w-fit h-fit gap-1`}>
+                <Link to="/home/search" className={`${currentRoute.includes("search")? "text-main dark:text-purple-300" : "text-txt-main dark:text-white"} flex flex-col items-center justify-center w-fit h-fit gap-1`}>
                     <MdOutlineManageSearch className="text-2xl"/>
                     Explore
                 </Link>
