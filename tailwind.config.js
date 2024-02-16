@@ -44,10 +44,11 @@ module.exports = {
         'tab': {'min': '460px'},
       },
       maxWidth:{
-        '640':'640px',
+        '640': '640px',
       },
       minHeight:{
-        '555':'555px'
+        '555': '555px',
+        '600': '600px',
       },
       inset:{
         '500px': '500px',
@@ -67,6 +68,9 @@ module.exports = {
         'main-page': 'linear-gradient(153deg, rgba(242,242,239,1) 0%, rgba(242,245,241,1) 0%, rgba(252,252,252,1) 28.999999999999996%, rgba(251,251,251,1) 28.999999999999996%, rgba(253,253,253,1) 73%, rgba(250,245,243,1) 100%)',
         'main-page-dark': 'linear-gradient(153deg, rgb(102 102 102) 0%, rgb(106 106 106) 0%, rgb(125 123 123) 28.999999999999996%, rgb(125 125 125) 28.999999999999996%, rgb(99 99 99) 73%, rgb(20 20 20) 100%)',
       },
+      borderRadius:{
+        'radius': '6px 6px 0 0'
+      }
     },
   },
   plugins: [],

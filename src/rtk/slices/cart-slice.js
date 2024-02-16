@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
                     background:"rgb(83 177 117)",
                     color: "#fff",
                     iconColor: "#fff",
-                    width: "80%"
+                    width: "285px"
                 });
                 Toast.fire({
                     icon: "success",

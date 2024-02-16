@@ -5,8 +5,10 @@ import { bestSelling } from "../../utils/bestSelling"
 import { exOffers } from "../../utils/exOffers"
 import { groceries, legumes } from "../../utils/groceries"
 import { products } from "../../utils/products";
+// import { useSelector } from "react-redux"
 
 export default function ProductDetails() {
+    // const products = useSelector((state)=> state.products)
     const [toggle, setToggle] = useState(0)
     const updateToggle = (id)=> {
         setToggle(id)
@@ -20,6 +22,7 @@ export default function ProductDetails() {
                 setProduct(products.filter((p)=>p.title === searchedProductTitle)[0])
             }
         })
+        // all conditions below doesnot matter when use api response products just the one above
         bestSelling.map((prod)=>{
             if (prod.title === productTitle) {
                 setProduct(bestSelling.filter((p)=>p.title === productTitle)[0])
@@ -53,7 +56,7 @@ export default function ProductDetails() {
                         }
                     }}>Product Detail</p>
                 </div>
-                <FaAngleRight className={`${toggle === 1 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                <FaAngleRight className={`${toggle === 1 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                     if (toggle !== 1) {
                         updateToggle(1)
                     }else {
@@ -79,7 +82,7 @@ export default function ProductDetails() {
                 </div>
                 <div className="flex items-center w-fit gap-5">
                     <p className="text-7c text-sm flex items-center justify-center w-fit h-fit bg-e2 dark:bg-slate-500 dark:text-e2 rounded-md px-3 py-px">{product.nutritions}</p>
-                    <FaAngleRight className={`${toggle === 2 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                    <FaAngleRight className={`${toggle === 2 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                         if (toggle !== 2) {
                             updateToggle(2)
                         }else {
@@ -105,7 +108,7 @@ export default function ProductDetails() {
                 </div>
                 <div className="flex items-center w-fit gap-5">
                     <p className="text-carrot dark:text-orange-300 text-2xl">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-                    <FaAngleRight className={`${toggle === 3 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                    <FaAngleRight className={`${toggle === 3 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                         if (toggle !== 3) {
                             updateToggle(3)
                         }else {

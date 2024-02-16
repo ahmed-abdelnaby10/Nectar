@@ -2,11 +2,13 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import bg1 from "../../assests/slider/3698 1.png"
 import bg2 from "../../assests/slider/pngfuel.png"
-import { homeSlider } from '../../utils/offers';
+import { offers } from '../../utils/offers';
+// import { useSelector } from "react-redux"
 
 const indicators = () => (<div className="indicator offer-ind"></div>);
 
 export default function OffersSlider() {
+    // const offers = useSelector((state)=>state.offers)
     return (
         <div className='slide-container w-full'>
             <Slide
@@ -18,7 +20,7 @@ export default function OffersSlider() {
                 indicators={indicators}
             >
                 {
-                    homeSlider.map((slide)=>{
+                    offers.map((slide)=>{
                         return(
                             <div key={slide.id} className="flex items-center justify-end w-full relative px-3.5 h-115 tab:h-40 tab:justify-center">
                                 <div className="rounded-lg slider-page absolute left-0 top-0 overflow-hidden w-full h-full">

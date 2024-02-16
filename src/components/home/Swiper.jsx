@@ -7,7 +7,6 @@ import { FaPlus } from 'react-icons/fa';
 import { useDispatch } from "react-redux"
 import { addToCart } from "../../rtk/slices/cart-slice"
 import { useEffect, useState } from 'react';
-import { updateCardAmount } from '../../rtk/slices/cartAmount-slice';
 
 export default function ProductsSwiper(props) {
     const dispatch = useDispatch()
@@ -65,7 +64,7 @@ export default function ProductsSwiper(props) {
                                     </Link>
                                     <div className='flex items-center justify-between w-full h-fit'>
                                         <span className='text-txt-main text-lg font-semibold dark:text-white'>${offer.price}</span>
-                                        <div className='flex items-center justify-center w-12 h-12 rounded-md bg-main dark:bg-purple-500 text-white text-lg' onClick={()=>{
+                                        <div className='flex items-center justify-center w-12 h-12 rounded-md bg-main dark:bg-purple-500 text-white text-lg cursor-pointer' onClick={()=>{
                                             dispatch(addToCart(offer))
                                         }}>
                                             <FaPlus/>

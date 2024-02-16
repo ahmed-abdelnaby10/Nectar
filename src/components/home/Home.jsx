@@ -9,13 +9,21 @@ import Legumes from "./Legumes";
 import { groceries } from "../../utils/groceries";
 import { useNavigate } from 'react-router-dom';
 import ThemeSwitcher from "../ThemeSwitcher";
-import Footer from "../Footer";
+import Footer from "../Footer"
+// import { useSelector } from "react-redux"
+
 
 export default function Home() {
+    // data using response of api
+    // const products = useSelector((state)=>state.products)
+    // const bestSelling = useSelector((state)=>state.bestSelling)
+    // const exOffers = useSelector((state)=>state.exclusiveOffers)
+    // const groceries = products.filter((product)=> product.category === "groceries")
+    
     const navigate = useNavigate();
     return (
-        <div className="px-5 flex flex-col items-center pb-24">
-            <img src={carrot} alt="carrot" className="mt-5 w-5 tab:w-10 tab:mb-2.5"/>
+        <div className="px-5 flex flex-col items-center pt-5 pb-24 min-h-screen">
+            <img src={carrot} alt="carrot" className="w-5 tab:w-10 tab:mb-2.5"/>
             <div className="flex gap-1.5 mt-1 items-center justify-center w-fit h-fit text-txt-main/70 dark:text-white text-lg font-medium">
                 <FaLocationDot/> Dhaka, Banassre <ThemeSwitcher/>
             </div>

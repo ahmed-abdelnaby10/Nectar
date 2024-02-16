@@ -5,8 +5,11 @@ import { FreeMode } from 'swiper/modules'
 import { legumes } from '../../utils/groceries';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+// import { useSelector } from "react-redux"
 
 export default function Legumes() {
+    // const products = useSelector((state)=>state.legumes)
+    // const legumes = products.filter((product)=> product.category === "legumes")
     const [size, setSize] = useState(0)
     const [space, setSpace] = useState(0)
     useEffect(()=>{

@@ -4,7 +4,7 @@ import { reversePay } from "../../rtk/slices/payment-slice";
 import shoppingCart from "../../assests/shoppingcart.png"
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import Footer from "../Footer";
+import Footer from "../Footer"
 
 export default function Cart() {
     const cartProducts = useSelector((state)=> state.cart)
@@ -49,7 +49,7 @@ export default function Cart() {
                         </div>
                 }
             </div>
-            <button className={`${cartProducts.length > 0 ? "flex" : "hidden"} bg-main dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center`} onClick={()=>{
+            <button className={`${cartProducts.length > 0 ? "flex" : "hidden"} bg-main mb-20 dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center`} onClick={()=>{
                 dispatch(reversePay(true))
                 console.log(subTotal);
                 }}>

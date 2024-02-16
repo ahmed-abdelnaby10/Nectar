@@ -4,12 +4,12 @@ import SplashScreen from './components/Splash';
 import { useState } from 'react';
 import Welcome from './components/Welcome';
 import {Routes, Route} from "react-router-dom"
-import SignIn from './components/SignIn';
+import SignIn from './components/auth/SignIn';
 import VerificationPhone from './components/VerificationPhone';
 import EnterPhone from './components/EnterPhone';
 import Location from './components/Location';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import Login from './components/auth/Login';
+import SignUp from './components/auth/SignUp';
 import ForgetPass from './components/ForgetPass';
 import Home from './components/home/Home';
 import Product from './components/home/Product';
@@ -21,10 +21,20 @@ import SearchedProducts from './components/explore/SearchedProducts';
 import Offers from './components/offers/Offers';
 import Success from './components/payments/Success';
 import Failed from './components/payments/Failed';
+// import { useDispatch } from "react-redux";
+// import { fetchBestSelling } from './rtk/slices/bestSelling-slice';
+// import { fetchExclusiveOffers } from './rtk/slices/exclusiveOffers-slice';
+// import { fetchOffers } from './rtk/slices/offers-slice';
+// import { fetchProducts } from './rtk/slices/products-slice';
 
 function App() {
+  // const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
   useEffect(()=>{
+    // dispatch(fetchOffers())
+    // dispatch(fetchProducts())
+    // dispatch(fetchBestSelling())
+    // dispatch(fetchExclusiveOffers())
     setTimeout(() => {
       setIsLoading(false)
     }, 3000);
@@ -35,7 +45,7 @@ function App() {
       )
     }
   return (
-    <div className='tab:border tab:border-solid tab:border-e2 tab:rounded-md relative dark:bg-slate-700'>
+    <div className='tab:border tab:border-solid tab:border-e2 tab:rounded-radius relative dark:bg-slate-700'>
       <Routes>
         <Route path='/' element={<Welcome/>}/>
         <Route path='/sign-in' element={<SignIn/>}/>

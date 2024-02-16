@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsCards from "./ProductsCards";
 import { TbColorFilter } from "react-icons/tb";
-import Footer from "../Footer";
+import Footer from "../Footer"
+// import { useSelector } from "react-redux"
 
 export default function Explore() {
+    // data using response of api
+    // const products = useSelector((state)=>state.products)
+
     const [inputText, setInputText] = useState("");
     const [search, setSearch] = useState(false)
     const [data, setData] = useState([])
@@ -25,13 +29,13 @@ export default function Explore() {
         }else {
             setSearch(true)
             setShowDropDown(true)
-            setDropDown(products.filter((el) => el.title.toLowerCase().includes(inputText)))
+            setDropDown(products.filter((el) => el.title.toLowerCase().includes(inputText))) //exchange products from utils here with api response products
             setDropDownCates(cateogries.filter((cate) => cate.title.toLowerCase().includes(inputText)))
         }
     },[inputText])
     useEffect(()=>{
         if (inputText !== '') {
-            setData(products.filter((el) => el.category === cate))
+            setData(products.filter((el) => el.category === cate)) //exchange products from utils here with api response products
         }
     },[cate, inputText])
     const handleFilter = ()=>{
@@ -50,7 +54,7 @@ export default function Explore() {
         }
     }
     return (
-        <div className="flex flex-col items-center justify-start pt-5 px-5 pb-10 min-h-screen">
+        <div className="flex flex-col items-center justify-start pt-5 px-5 pb-24 min-h-screen">
             <h1 className="text-lg text-txt-main dark:text-white font-semibold">Find Products</h1>
             <div className="relative w-full h-fit mt-5 mb-5">
                 <IoSearchOutline className="text-txt-main dark:text-white text-2xl absolute left-2.5 center-y" onClick={()=>{document.getElementById("search").focus()}}/>
@@ -58,7 +62,7 @@ export default function Explore() {
                     setInputText(e.target.value.toLowerCase())
                     setCate("")
                 }}/>        
-                <TbColorFilter className="text-main dark:text-purple-500 text-xl absolute right-2.5 center-y" onClick={()=>{
+                <TbColorFilter className="text-main dark:text-purple-500 text-xl absolute right-2.5 center-y cursor-pointer" onClick={()=>{
                     setShowFilter(!showFilter)
                     setShowProducts(false)
                 }}/>
@@ -105,7 +109,7 @@ export default function Explore() {
                         {
                             cateogries.map((cate)=>{
                                 return (
-                                    <Link to={`/home/search/${cate.title}`} key={cate.id} className={`w-full h-48 rounded-2xl border-2 border-solid flex flex-col items-center gap-5 justify-center`} style={{backgroundColor:`rgba(${cate.color},0.2)`, borderColor:`rgba(${cate.color},0.7)`}}>
+                                    <Link to={`/home/search/${cate.title}`} key={cate.id} className={`w-full h-48 tab:h-60 rounded-2xl border-2 border-solid flex flex-col items-center gap-5 justify-center`} style={{backgroundColor:`rgba(${cate.color},0.2)`, borderColor:`rgba(${cate.color},0.7)`}}>
                                         <img src={cate.image} alt={cate.title} />
                                         <h2 className="text-txt-main dark:text-white text-base font-semibold text-center capitalize">{cate.title}</h2>
                                     </Link>

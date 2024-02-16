@@ -7,8 +7,14 @@ import { groceries } from "../../utils/groceries"
 import { FaAngleLeft } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import Footer from "../Footer"
+// import { useSelector } from "react-redux"
 
 export default function Offers() {
+    // data using response of api
+    // const products = useSelector((state)=>state.products)
+    // const bestSelling = useSelector((state)=>state.bestSelling)
+    // const exOffers = useSelector((state)=>state.exclusiveOffers)
+    // const groceries = products.filter((product)=> product.category === "groceries")
     const navigate = useNavigate()
     const {offerTitle} = useParams()
     const [data, setData] = useState([])
@@ -24,7 +30,7 @@ export default function Offers() {
         }
     },[])
     return (
-        <div className="flex flex-col items-center justify-start gap-5 px-5 pt-5 pb-24">
+        <div className="flex flex-col items-center justify-start gap-5 px-5 pt-5 pb-24 min-h-screen">
             <div className="flex items-center justify-center relative w-full">
                 <button className="absolute center-y left-0 text-2xl" onClick={()=>navigate(-1)}><FaAngleLeft/></button>
                 <h1 className="text-lg text-txt-main font-semibold capitalize dark:text-white">{offerTitle}</h1>

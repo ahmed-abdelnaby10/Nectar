@@ -6,6 +6,11 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import paySlice from "./slices/payment-slice";
 import themeSlice from "./slices/theme-slice";
+import userSlice from "./slices/user-slice";
+// import bestSellingSlice from "./slices/bestSelling-slice";
+// import exclusiveOffersSlice from "./slices/exclusiveOffers-slice";
+// import offersSlice from "./slices/offers-slice";
+// import productsSlice from "./slices/products-slice";
 
 const presistConfig = {
   key: "Quick-Bite",
@@ -18,6 +23,11 @@ const reducers = combineReducers({
   favorite: favSlice,
   cartAmount: cartAmountSlice,
   theme: themeSlice,
+  // offers: offersSlice,
+  // products: productsSlice,
+  // bestSelling: bestSellingSlice,
+  // exclusiveOffers: exclusiveOffersSlice,
+  user: userSlice,
 });
 
 const presistedReducers = persistReducer(presistConfig, reducers);

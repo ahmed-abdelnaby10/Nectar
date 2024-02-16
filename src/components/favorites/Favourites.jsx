@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { addToCart } from "../../rtk/slices/cart-slice"
 import { TbHeartPlus } from "react-icons/tb";
-import Footer from "../Footer";
+import Footer from "../Footer"
 
 export default function Favourites() {
     const favProducts = useSelector((state)=> state.favorite)
@@ -14,7 +14,7 @@ export default function Favourites() {
         })
     }
     return (
-        <div className="flex flex-col items-center justify-between gap-5 py-5 h-screen">
+        <div className="flex flex-col items-center justify-between gap-5 pt-5 pb-24 min-h-screen">
             <div className="w-full flex flex-col items-center justify-start grow gap-5 h-full">
                 <h1 className="text-lg text-txt-main font-semibold dark:text-white">Favorurite</h1>
                 {favProducts.length > 0 ?

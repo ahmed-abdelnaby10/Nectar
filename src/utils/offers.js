@@ -2,7 +2,7 @@ import vegs from "../assests/slider/vegs.png"
 import meat from "../assests/slider/meat.png"
 import bev from "../assests/slider/beverages.png"
 
-export const homeSlider = [
+export const offers = [
     {
         id:1,
         image: vegs,

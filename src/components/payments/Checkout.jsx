@@ -30,12 +30,12 @@ export default function Checkout() {
         <div className={`flex flex-col w-full ${show? "bottom-0" : "-bottom-500px"} h-fit px-5 py-8 duration-300 absolute z-50 left-0 bg-gray-50 dark:bg-gray-500 top-raduis`}>
             <div className='w-full flex items-center justify-between pb-8'>
                 <h1 className='font-semibold text-xl text-txt-main dark:text-white'>Checkout</h1>
-                <HiXMark onClick={()=>{dispatch(reversePay(false))}} className='text-2xl text-txt-main dark:text-white'/>
+                <HiXMark onClick={()=>{dispatch(reversePay(false))}} className='text-2xl text-txt-main dark:text-white cursor-pointer'/>
             </div>
             <ul className="w-full flex flex-col divide-y divide-solid divide-e2 dark:divide-slate-400">
                 <li className="flex items-center justify-between w-full pb-5">
                     <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold' onClick={()=>{
+                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
                             if (toggle !== 1) {
                                 updateToggle(1)
                             }else {
@@ -45,7 +45,7 @@ export default function Checkout() {
                     </div>
                     <div className='flex items-center w-fit h-full gap-2'>
                         <p className='text-txt-main dark:text-white text-base font-semibold'>Select Method</p>
-                        <FaAngleRight className={`${toggle === 1 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                        <FaAngleRight className={`${toggle === 1 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                             if (toggle !== 1) {
                                 updateToggle(1)
                             }else {
@@ -56,10 +56,10 @@ export default function Checkout() {
                 </li>
                 <li className={`${toggle === 1 ? "flex" : "hidden"} w-full py-5`}>
                     <div className="grid grid-cols-2 gap-5 w-full h-full">
-                        <p className="text-txt-main dark:text-white text-sm capitalize">home delivery</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize">mailbox delivery</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize">pick-up point</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize">instant delivery</p>
+                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">home delivery</p>
+                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">mailbox delivery</p>
+                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">pick-up point</p>
+                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">instant delivery</p>
                     </div>
                 </li>
 
@@ -67,7 +67,7 @@ export default function Checkout() {
 
                 <li className="flex items-center justify-between w-full py-5">
                     <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold' onClick={()=>{
+                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
                             if (toggle !== 2) {
                                 updateToggle(2)
                             }else {
@@ -79,7 +79,7 @@ export default function Checkout() {
                         <div className="w-fit h-fit px-2 bg-blue-500">
                             <img src={master} alt="Mastercard" className="w-5 h-5"/>
                         </div>
-                        <FaAngleRight className={`${toggle === 2 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                        <FaAngleRight className={`${toggle === 2 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                             if (toggle !== 2) {
                                 updateToggle(2)
                             }else {
@@ -96,7 +96,7 @@ export default function Checkout() {
 
                 <li className="flex items-center justify-between w-full py-5">
                     <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold' onClick={()=>{
+                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
                             if (toggle !== 3) {
                                 updateToggle(3)
                             }else {
@@ -106,7 +106,7 @@ export default function Checkout() {
                     </div>
                     <div className="flex items-center w-fit gap-2">
                         <p className='text-txt-main dark:text-white text-base font-semibold'>Pick discount</p>
-                        <FaAngleRight className={`${toggle === 3 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                        <FaAngleRight className={`${toggle === 3 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                             if (toggle !== 3) {
                                 updateToggle(3)
                             }else {
@@ -141,7 +141,7 @@ export default function Checkout() {
 
                 <li className="flex items-center justify-between w-full py-5">
                     <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold' onClick={()=>{
+                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
                             if (toggle !== 4) {
                                 updateToggle(4)
                             }else {
@@ -151,7 +151,7 @@ export default function Checkout() {
                     </div>
                     <div className="flex items-center w-fit gap-2">
                         <p className='text-txt-main dark:text-white text-base font-semibold'>${(subTotal + delivery - discount).toFixed(2)}</p>
-                        <FaAngleRight className={`${toggle === 4 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300`} onClick={()=>{
+                        <FaAngleRight className={`${toggle === 4 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
                             if (toggle !== 4) {
                                 updateToggle(4)
                             }else {
@@ -182,7 +182,7 @@ export default function Checkout() {
                 </li>
                 <p className='text-xs text-7c dark:text-e2 font-medium tracking-wider py-5'>By placing an order you agree to our <br /><span className='text-txt-main dark:text-white font-semibold'>Terms</span> And <span className='text-txt-main dark:text-white font-semibold'>Conditions</span></p>
             </ul>
-            <button className='flex bg-main dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center tracking-widest' onClick={()=>{
+            <button className='flex bg-main dark:bg-purple-500 relative rounded-3xl text-white w-100 mx-auto h-btn items-center justify-center tracking-widest cursor-pointer' onClick={()=>{
                     navigate('/home/cart/payment-failed')
                     dispatch(reversePay(false))
                 }}>

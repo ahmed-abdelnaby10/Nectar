@@ -6,7 +6,7 @@ import { groceries, legumes } from "../../utils/groceries"
 import { FaAngleLeft } from "react-icons/fa"
 import { IoShareOutline } from "react-icons/io5";
 import ProductDetails from "./ProductDetails"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../rtk/slices/cart-slice"
 import UpdateFavorite from "../favorites/UpdateFavorite"
 import { products } from "../../utils/products"
@@ -14,6 +14,8 @@ import ProductQuantity from "./ProductQuantity"
 import Footer from "../Footer"
 
 export default function Product() {
+    // products data from api response
+    // const products = useSelector((state)=> state.products)
     const dispatch = useDispatch()
     const { productTitle } = useParams()
     const { searchedProductTitle } = useParams()
@@ -25,6 +27,7 @@ export default function Product() {
                 setProduct(products.filter((p)=>p.title === searchedProductTitle)[0])
             }
         })
+        // all conditions below doesnot matter when use api response products just the one above
         bestSelling.map((prod)=>{
             if (prod.title === productTitle) {
                 setProduct(bestSelling.filter((p)=>p.title === productTitle)[0])
@@ -47,7 +50,7 @@ export default function Product() {
         })
     },[product, productTitle, searchedProductTitle])
     return (
-        <div className="flex items-center justify-start flex-col pb-24">
+        <div className="flex items-center justify-start flex-col min-h-screen pb-24">
             <div className="bg-sec-color dark:bg-slate-600 bottom-raduis w-full pt-5 h-72 pb-10 flex flex-col items-center">
                 <div className="flex items-center justify-between px-5 dark:text-white text-txt-main text-2xl w-full">
                     <button onClick={()=>navigate(-1)}><FaAngleLeft/></button>
