@@ -15,6 +15,7 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 22,
     },
     {
         id:2,
@@ -25,6 +26,7 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 0,
     },
     {
         id:3,
@@ -35,6 +37,7 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 33,
     },
     {
         id:4,
@@ -45,6 +48,7 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 0,
     },
     {
         id:5,
@@ -55,6 +59,7 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 0,
     },
     {
         id:6,
@@ -65,5 +70,6 @@ export const exOffers = [
         description: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
         nutritions: 100,
         cartQuantity: 1,
+        discount: 0,
     },
 ]

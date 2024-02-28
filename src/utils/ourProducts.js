@@ -7,7 +7,7 @@ import meat2 from "../assests/products/fish.png"
 import fruit1 from "../assests/products/banana.png"
 import fruit2 from "../assests/products/apple.png"
 
-export const products = [
+export const ourProducts = [
     {
         id: 1,
         category: "beverages",
@@ -199,31 +199,5 @@ export const products = [
         nutritions: 100,
         cartQuantity: 1,
         discount: 5,
-    },
-]
-export const cateogries = [
-    {
-        id: 1,
-        title: "beverages",
-        image: can1,
-        color: "83, 177, 117",
-    },
-    {
-        id: 2,
-        title: "eggs",
-        image: egg1,
-        color: "248, 164, 76",
-    },
-    {
-        id: 3,
-        title: "meat & fish",
-        image: meat1,
-        color: "247, 165, 147",
-    },
-    {
-        id: 4,
-        title: "Fresh Fruits & Vegetable",
-        image: fruit1,
-        color: "211, 176, 224",
     },
 ]

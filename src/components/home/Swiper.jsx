@@ -56,20 +56,36 @@ export default function ProductsSwiper(props) {
                     props.data.map((offer)=>{
                         return(
                             <SwiperSlide key={offer.id}>
-                                <div className='rounded-lg gap-2.5 p-2.5 flex flex-col items-center justify-between overflow-hidden border-2 border-solid border-e2 dark:border-slate-400 dark:bg-slate-600' style={{width:"173.32px", height:"248.51px"}}>
+                                <div className='rounded-lg gap-2.5 p-2.5 flex flex-col items-center justify-between overflow-hidden border-2 border-solid border-e2 dark:border-slate-400 dark:bg-slate-600 relative' style={{width:"173.32px", height:"248.51px"}}>
                                     <img src={offer.image} alt={offer.title} className='w-24 h-16'/>
                                     <Link to={`/home/${offer.title}`} className='self-start'>
                                         <h2 className='text-base font-meduim text-txt-main dark:text-white'>{offer.title}</h2>
                                         <p className='text-7c text-sm dark:text-e2'>{offer.amount}, priceg</p>
                                     </Link>
                                     <div className='flex items-center justify-between w-full h-fit'>
-                                        <span className='text-txt-main text-lg font-semibold dark:text-white'>${offer.price}</span>
+                                        <div className='flex flex-col items-center justify-center h-fit'>
+                                            <span className={`${offer.discount > 0 ? "line-through text-7c dark:text-7c" : "text-txt-main dark:text-white"} text-lg font-semibold`}>${offer.price}</span>
+                                            {
+                                            offer.discount > 0 ?
+                                                <span className='text-txt-main dark:text-white text-lg font-semibold'>
+                                                    ${(offer.price - (offer.price * offer.discount / 100)).toFixed(2)}
+                                                </span>
+                                            :""
+                                            }
+                                        </div>
                                         <div className='flex items-center justify-center w-12 h-12 rounded-md bg-main dark:bg-purple-500 text-white text-lg cursor-pointer' onClick={()=>{
                                             dispatch(addToCart(offer))
                                         }}>
                                             <FaPlus/>
                                         </div>
                                     </div>
+                                    {
+                                        offer.discount > 0 ?
+                                        <div className='absolute bg-carrot dark:bg-main p-2 text-xs text-white rounded-lg -top-0.5 -right-0.5'>
+                                            - {offer.discount}%
+                                        </div>
+                                        :""
+                                    }
                                 </div>
                             </SwiperSlide>
                         )

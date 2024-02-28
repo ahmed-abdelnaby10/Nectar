@@ -11,6 +11,7 @@ export const cartAmountSlice = createSlice({
             if (repeatedProduct) {
                 repeatedProduct.price = action.payload.price;
                 repeatedProduct.quan = action.payload.quan;
+                repeatedProduct.discount = action.payload.discount;
             }else {
                 state.push(action.payload);
             }

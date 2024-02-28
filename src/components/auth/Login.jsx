@@ -3,53 +3,53 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import carrot from '../../assests/carrot.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux";
-import { addUser } from '../../rtk/slices/user-slice';
-import axios from "axios";
+// import { addUser } from '../../rtk/slices/user-slice';
+// import axios from "axios";
 export default function Login() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [login, setLogin] = useState(false);
-    const dispatch = useDispatch();
+    // const [login, setLogin] = useState(false);
+    // const dispatch = useDispatch();
     const handleFormOnSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post(`${process.env.REACT_APP_SERVER}/auth/login`, {
-                email,
-                password,
-            })
-            .then((res) => {
-                if (res.data.message === "Login Successful") {
-                    setLogin(true);
-                    const userData = {
-                        email: res.data.email,
-                        userName: res.data.userName,
-                    };
-                    dispatch(addUser(userData));
-                    navigate("/home")
-                }
-            })
-            .catch((e) => {
-                console.log(e);
-                console.log(e.response.data.message);
-            });
-    };
+        navigate("/home")
+        // axios
+        //     .post(`${process.env.REACT_APP_SERVER}/users/login`, {
+        //         email,
+        //         password,
+        //     })
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         dispatch(addUser(res.data))
+        //         if (res.data.message === "Login Successful") {
+        //             setLogin(true);
+        //             navigate("/home")
+        //         }
+        //     })
+        //     .catch((e) => {
+        //         console.log(e);
+        //         console.log(e.response.data.message);
+        //     });
+        };
     return (
         <div className='main-page flex flex-col items-center pt-20 px-5 h-screen'>
             <img src={carrot} alt="carrot" className='w-12 h-14' />
-            <form onSubmit={(e)=>{
-                e.preventDefault()
-                navigate('/home')
-                // handleFormOnSubmit(e)
-            }} className='w-full flex flex-col items-start mt-20'>
+            <form
+                action='POST'
+                onSubmit={(e)=>{
+                    handleFormOnSubmit(e)
+                }} 
+                className='w-full flex flex-col items-start mt-20'
+            >
                 <h1 className='text-txt-main text-2xl font-semibold mb-2.5'>Loging</h1>
                 <p className='text-7c text-base'>Enter your emails and password</p>
                 <div className="flex flex-col items-start w-full mt-10">
-                    <label htmlFor="mail" className="text-7c text-base font-medium">Email</label>
+                    <label htmlFor="email" className="text-7c text-base font-medium">Email</label>
                     <input
                         type="email" 
-                        id='mail' 
+                        id='email' 
                         autoComplete="email" 
                         placeholder="Enter your mail" 
                         className="placeholder:text-7c placeholder:text-xs focus:outline-none bg-transparent w-full h-10 border-b border-solid border-e2 pb-1 text-txt-main text-lg"

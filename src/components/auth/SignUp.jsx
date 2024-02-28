@@ -2,67 +2,86 @@ import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import carrot from '../../assests/carrot.png'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from "axios";
-import Swal from 'sweetalert2'
+// import axios from "axios";
+// import Swal from 'sweetalert2'
+import { useDispatch } from "react-redux"
+import { addUser } from '../../rtk/slices/user-slice'
 
 
 export default function SignUp() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [show, setShow] = useState(false)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userName, setUserName] = useState("");
     const handleFormOnSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post(`${process.env.REACT_APP_SERVER}/auth/register`, {
-                userName,
-                email,
-                password,
-            })
-            .then((res) => {
-                console.log(res.data);
-                const msg = res.data.message;
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "center",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    background:"rgb(83 177 117)",
-                    color: "#fff",
-                    iconColor: "#fff",
-                    width: "285px"
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: `${msg}`,
-                    confirmButtonText: "OK",
-                    showCancelButton: true,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        if (msg.includes('exist')) {
-                            navigate("/login")
-                        } else {
-                            navigate("/sign-in/enter-phone")
-                        }
-                    }
-                });
-            // window.location.href = "/sign-in";
-            })
-            .catch((e) => {
-                console.log(e);
-                console.log(e.response.data.message);
-            });
-        //alert here
+        navigate("/sign-in/enter-phone")
+        dispatch(addUser({userName, email}))
+        // axios
+        //     .post(`${process.env.REACT_APP_SERVER}/users`, {
+        //         userName,
+        //         email,
+        //         password,
+        //     })
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         const msg = res.data.message;
+        //         const Toast = Swal.mixin({
+        //             toast: true,
+        //             position: "center",
+        //             showConfirmButton: false,
+        //             timer: 2000,
+        //             background:"rgb(83 177 117)",
+        //             color: "#fff",
+        //             iconColor: "#fff",
+        //             width: "285px"
+        //         });
+        //         Toast.fire({
+        //             icon: "success",
+        //             title: `${msg}`,
+        //             showCancelButton: false,
+        //         }).then((result) => {
+        //             if (result.isConfirmed) {
+        //                 if (msg.includes('exist')) {
+        //                     navigate("/login")
+        //                 } else {
+        //                     navigate("/sign-in/enter-phone")
+        //                 }
+        //             }
+        //         });
+        //     window.location.href = "/sign-in/enter-phone";
+        //     })
+        //     .catch((e) => {
+        //         console.log(e);
+        //         console.log(e.response.data.message);
+        //         const Toast = Swal.mixin({
+        //             toast: true,
+        //             position: "center",
+        //             showConfirmButton: false,
+        //             timer: 2000,
+        //             background:"rgb(83 177 117)",
+        //             color: "#fff",
+        //             iconColor: "#fff",
+        //             width: "285px"
+        //         });
+        //         Toast.fire({
+        //             icon: "success",
+        //             title: `${e.response.data.message}`,
+        //         })
+        //     });        
     };
     return (
         <div className='main-page flex flex-col items-center pt-20 px-5 h-screen'>
             <img src={carrot} alt="carrot" className='w-12 h-14' />
-            <form onSubmit={(e)=>{
-                e.preventDefault()
-                navigate("/sign-in/enter-phone")
-                // handleFormOnSubmit(e)
-            }} className='w-full flex flex-col items-start mt-5'>
+            <form
+                action='POST'
+                onSubmit={(e)=>{
+                    handleFormOnSubmit(e)
+                }} 
+                className='w-full flex flex-col items-start mt-5'
+            >
                 <h1 className='text-txt-main text-2xl font-semibold'>Sign Up</h1>
                 <p className='text-7c text-base'>Enter your credentials to continue</p>
                 <div className="flex flex-col items-start w-full mt-2.5">
@@ -76,6 +95,7 @@ export default function SignUp() {
                         onChange={(e) => {
                             setUserName(e.target.value);
                         }}
+                        value={userName}
                     />
                 </div>
                 <div className="flex flex-col items-start w-full mt-5">
@@ -89,6 +109,7 @@ export default function SignUp() {
                         onChange={(e) => {
                             setEmail(e.target.value);
                         }}
+                        value={email}
                     />
                 </div>
                 <div className='flex flex-col items-start w-full mt-5'>
@@ -105,6 +126,7 @@ export default function SignUp() {
                             onChange={(e) => {
                                 setPassword(e.target.value);
                             }}
+                            value={password}
                         />
                         {show?
                         <FaEye onClick={()=>{setShow(false)}} className='absolute right-2.5 top-3 text-txt-main cursor-pointer'/>

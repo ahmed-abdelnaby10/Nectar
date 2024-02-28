@@ -22,7 +22,16 @@ export default function ProductQuantity(props) {
                     console.log(quantity);
                 }}/>
             </div>
-            <span className="text-txt-main dark:text-white text-xl font-semibold">${(+props.product.price * +props.product.cartQuantity).toFixed(2)}</span>
+            <div className="flex flex-col items-center w-fit">
+                {
+                    props.product.discount > 0 ?
+                    <span className='text-txt-main dark:text-white text-lg font-semibold'>
+                        ${((props.product.price - (props.product.price * props.product.discount / 100)) * +props.product.cartQuantity).toFixed(2)}
+                    </span>
+                :""
+                }
+                <span className={`${props.product.discount > 0 ? "line-through text-7c dark:text-7c" : "text-txt-main dark:text-white"} text-lg font-semibold`}>${(+props.product.price).toFixed(2)}</span>
+            </div>
         </div>
     )
 }

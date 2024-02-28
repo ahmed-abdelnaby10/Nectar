@@ -51,7 +51,7 @@ export default function Product() {
     },[product, productTitle, searchedProductTitle])
     return (
         <div className="flex items-center justify-start flex-col min-h-screen pb-24">
-            <div className="bg-sec-color dark:bg-slate-600 bottom-raduis w-full pt-5 h-72 pb-10 flex flex-col items-center">
+            <div className="bg-sec-color dark:bg-slate-600 bottom-raduis w-full pt-5 h-72 pb-10 flex flex-col items-center relative">
                 <div className="flex items-center justify-between px-5 dark:text-white text-txt-main text-2xl w-full">
                     <button onClick={()=>navigate(-1)}><FaAngleLeft/></button>
                     <Link><IoShareOutline/></Link>
@@ -59,6 +59,13 @@ export default function Product() {
                 <div className="h-52 w-44">
                     <img src={product.image} alt={product.title} className="w-full h-full" />
                 </div>
+                {
+                    product.discount > 0 ?
+                    <div className='bg-carrot dark:bg-main p-2 text-sm text-white absolute w-14 h-14 self-end right-8 -bottom-3 flex items-center justify-center text-center before:absolute before:content-[""] before:top-0 before:left-0 before:w-14 before:h-14 before:bg-carrot dark:before:bg-main before:rotate-30 after:absolute after:content-[""] after:top-0 after:left-0 after:w-14 after:h-14 after:bg-carrot dark:after:bg-main after:rotate-60'>
+                        <p className="m-0 p-0 z-50">Offer <br /> - {product.discount}%</p>
+                    </div>
+                    : ""
+                }
             </div>
             <div className="px-5 py-7 flex flex-col items-start justify-start w-full">
                 <div className="flex items-center justify-between w-full text-txt-main dark:text-white text-2xl">

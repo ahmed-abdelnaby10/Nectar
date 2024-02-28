@@ -127,7 +127,7 @@ export default function Explore() {
                                         <Link to={`/home/search/${prod.category}/${prod.title}`} key={prod.id} className="text-txt-main w-full text-center pt-3 text-base font-semibold dark:text-white">{prod.title}</Link>
                                     )
                                 })
-                            :
+                            :   
                                 dropDownCates.map((prod)=>{
                                     return(
                                         <div key={prod.id} className="text-txt-main dark:text-white w-full text-center pt-3 text-base font-semibold" 

@@ -4,6 +4,7 @@ import { removeFromCart } from "../../rtk/slices/cart-slice"
 import { FaMinus, FaPlus } from "react-icons/fa"
 import { useEffect, useState } from "react"
 import { clearProdAmount, updateCardAmount } from "../../rtk/slices/cartAmount-slice"
+import { Link } from "react-router-dom"
 
 export default function ProductCard(props) {
     const [quantity, setQuantity] = useState(props.product.cartQuantity)
@@ -19,7 +20,7 @@ export default function ProductCard(props) {
             <div className="flex flex-col w-full gap-2.5">
                 <div className="flex items-center justify-between w-full gap-2.5">
                     <div className="flex flex-col items-start">
-                        <h2 className="text-txt-main dark:text-white text-base font-semibold">{props.product.title}</h2>
+                        <Link to={`/home/${props.product.title}`} className="text-txt-main dark:text-white text-base font-semibold">{props.product.title}</Link>
                         <p className="text-7c dark:text-e2 text-sm">{props.product.amount}, price</p>
                     </div>
                     <HiXMark className="text-b3 dark:text-e2 text-xl" onClick={()=>{
@@ -42,7 +43,9 @@ export default function ProductCard(props) {
                             
                         }}/>
                     </div>
-                    <p className="text-txt-main dark:text-white text-base font-semibold" id={props.product.id}>${(props.product.price * quantity).toFixed(2)}</p>
+                    <p className="text-txt-main dark:text-white text-base font-semibold" id={props.product.id}>
+                        ${((props.product.discount > 0 ? (props.product.price - (props.product.price * props.product.discount / 100)) : props.product.price) * quantity).toFixed(2)}
+                    </p>
                 </div>
             </div>
         </div>

@@ -19,10 +19,26 @@ export default function ProductsCards(props) {
                                 <h2 className='text-base font-semibold text-txt-main dark:text-white capitalize'>{product.title}</h2>
                                 <p className='text-7c dark:text-e2 text-sm'>{product.amount}, priceg</p>
                             </Link>
-                            <div className='flex items-center justify-between w-full h-fit'>
-                                <span className='text-txt-main dark:text-white text-lg font-semibold'>${product.price}</span>
+                            <div className='flex items-center justify-between w-full h-fit relative'>
+                                <div className='flex flex-col items-center justify-center h-fit'>
+                                    <span className={`${product.discount > 0 ? "line-through text-7c dark:text-7c" : "text-txt-main dark:text-white"} text-lg font-semibold`}>${product.price}</span>
+                                    {
+                                    product.discount > 0 ?
+                                        <span className='text-txt-main dark:text-white text-lg font-semibold'>
+                                            ${(product.price - (product.price * product.discount / 100)).toFixed(2)}
+                                        </span>
+                                    :""
+                                    }
+                                </div>
                                 <button title='add product to cart' className='flex items-center justify-center w-12 h-12 rounded-md bg-main text-white dark:bg-purple-500 text-lg cursor-pointer' onClick={()=>{dispatch(addToCart(product))}}><FaPlus/></button>
                             </div>
+                            {
+                                product.discount > 0 ?
+                                <div className='absolute bg-carrot p-2 text-xs text-white rounded-lg -top-0.5 -right-0.5'>
+                                    - {product.discount}%
+                                </div>
+                                :""
+                            }
                         </div>
                     )
                 })

@@ -6,10 +6,12 @@ import ProductsSwiper from "./Swiper";
 import { bestSelling } from '../../utils/bestSelling';
 import { exOffers } from '../../utils/exOffers';
 import Legumes from "./Legumes";
-import { groceries } from "../../utils/groceries";
 import { useNavigate } from 'react-router-dom';
 import ThemeSwitcher from "../ThemeSwitcher";
 import Footer from "../Footer"
+import QuickActions from "./QuickActions";
+import Categories from "./Categories";
+import { cateogries, products } from "../../utils/products";
 // import { useSelector } from "react-redux"
 
 
@@ -34,10 +36,20 @@ export default function Home() {
                 }}/>
             </div>
             <OffersSlider/>
+            <QuickActions/>
+            <Categories/>
             <ProductsSwiper title="Exclusive Offer" data={exOffers}/>
             <ProductsSwiper title="Best Selling" data={bestSelling}/>
             <Legumes/>
-            <ProductsSwiper title="Groceries" data={groceries}/>
+            {
+                cateogries.map((cate)=>{
+                    const data = products.filter((product)=> product.category === cate.title)
+                    return(
+                        <ProductsSwiper title={cate.title} data={data} key={cate.id}/>
+                        )
+                    })
+                }
+            <ProductsSwiper title="Nectar Products" data={products}/>
             <Footer/>
         </div>
     )

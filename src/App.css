@@ -14,7 +14,6 @@
 }
 .PhoneInputCountrySelect {
   width: 10px;
-  background-color: whi;
 }
 .PhoneInputCountryIcon{
   width: 25px;
@@ -93,4 +92,23 @@ input[type = search]::-webkit-search-cancel-button {
 }
 .border-li {
   border-bottom: 1px solid #e2e2e2 !important;
+}
+.oleo-font {
+  font-family: "Oleo Script", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.actions-swiper {
+  overflow: visible !important;
+}
+.scan-footer {
+  border-radius: 16px 16px 0 0;
+}
+.swiper-pagination {
+  bottom: 90  px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #53B175 !important;
+  width: 16px !important;
+  border-radius: 8px !important;
 }

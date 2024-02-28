@@ -13,7 +13,7 @@ export default function Cart() {
     const dispatch = useDispatch()
     useEffect(()=>{
         const price = cartAmount.reduce((acc, curr)=>{
-            return acc + curr.price * curr.quan
+            return acc + (curr.discount > 0 ? (curr.price - (curr.price * curr.discount / 100)) : curr.price) * curr.quan
         },0)
         setSubTotal(price)
     },[cartAmount])

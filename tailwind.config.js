@@ -51,7 +51,7 @@ module.exports = {
         '600': '600px',
       },
       inset:{
-        '500px': '500px',
+        '700px': '700px',
         '37%':'37%',
       },
       keyframes:{
@@ -70,6 +70,13 @@ module.exports = {
       },
       borderRadius:{
         'radius': '6px 6px 0 0'
+      },
+      boxShadow: {
+        'custom': '1px 10px 16px -5px #b3b3b3'
+      },
+      rotate:{
+        '30': '30deg',
+        '60': '60deg',
       }
     },
   },

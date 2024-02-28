@@ -7,13 +7,17 @@ import { persistReducer } from "redux-persist";
 import paySlice from "./slices/payment-slice";
 import themeSlice from "./slices/theme-slice";
 import userSlice from "./slices/user-slice";
-// import bestSellingSlice from "./slices/bestSelling-slice";
-// import exclusiveOffersSlice from "./slices/exclusiveOffers-slice";
+import clubPointsSlice from "./slices/clubPoints-slice";
+import countrySlice from "./slices/country-slice";
 // import offersSlice from "./slices/offers-slice";
 // import productsSlice from "./slices/products-slice";
+// import categoriesSlice from "./slices/categories-slice";
+import transactionHistorySlice from "./slices/transactionHistory-slice";
+import promoCodesSlice from "./slices/promoCodes-slice";
+// import ordersSlice from "./slices/order-slice";
 
 const presistConfig = {
-  key: "Quick-Bite",
+  key: "Nectar",
   storage,
 };
 
@@ -25,9 +29,13 @@ const reducers = combineReducers({
   theme: themeSlice,
   // offers: offersSlice,
   // products: productsSlice,
-  // bestSelling: bestSellingSlice,
-  // exclusiveOffers: exclusiveOffersSlice,
+  // categories: categoriesSlice,
   user: userSlice,
+  points: clubPointsSlice,
+  country: countrySlice,
+  history: transactionHistorySlice,
+  // orders: ordersSlice,
+  promoCodes: promoCodesSlice,
 });
 
 const presistedReducers = persistReducer(presistConfig, reducers);
