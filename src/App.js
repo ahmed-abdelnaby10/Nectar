@@ -66,7 +66,7 @@ function App() {
         <Route path='/home' element={<Home/>}/>
         <Route 
           path={`/home/${currentRoute.includes("search")? "search" : "categories"}/:categoryTitle`} element={<AllProducts/>}
-        />
+        /> 
         <Route path='/home/:productTitle' element={<Product/>}/>
         <Route path='/home/search' element={<Explore/>}/>
         <Route path='/home/cart' element={<Cart/>}/>

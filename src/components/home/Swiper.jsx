@@ -40,7 +40,7 @@ export default function ProductsSwiper(props) {
         <div className='w-full mt-10'>
             <div className='w-full flex items-center justify-between mb-5'>
                 <h1 className='text-2xl font-semibold text-txt-main dark:text-white'>{props.title}</h1>
-                <Link to={`/home/offers/${props.title}`} className='text-main dark:text-purple-300 text-base font-semibold'>See all</Link>
+                <Link to={`/home/categories/${props.title}`} className='text-main dark:text-purple-300 text-base font-semibold'>See all</Link>
             </div>
             <Swiper
                 slidesPerView={size}
