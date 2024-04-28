@@ -11,11 +11,8 @@ export default function ProductsCards(props) {
             {
                 props.data.map((product)=>{
                     return (
-<<<<<<< HEAD
                         <div key={product.id} className='rounded-lg gap-2.5 p-2.5 relative flex flex-col items-center justify-between overflow-hidden border-2 border-solid border-e2 dark:border-slate-400 w-full dark:bg-slate-600'>
-=======
                         <div key={product.id} className='rounded-lg gap-2.5 p-2.5 flex flex-col relative items-center justify-between overflow-hidden border-2 border-solid border-e2 dark:border-slate-400 w-full dark:bg-slate-600'>
->>>>>>> d46faabdd6c234fee8577b546a55e1df8d1628d0
                             <div className="w-full h-20 flex justify-center">
                                 <img src={product.image} alt={product.title} className="h-full w-auto"/>
                             </div>
