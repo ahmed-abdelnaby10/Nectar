@@ -36,23 +36,6 @@ export default function Checkout() {
         setSubTotal(price)
     },[cartAmount])
 
-    // const postOrderOnClick = () => {
-    //     axios.post(`${process.env.REACT_APP_SERVER}/orders`, {
-    //         userEmail: user.email,
-    //         orderDetails: cartAmount,
-    //     })
-    //     .then((res) => console.log(res.data))
-    //     .catch((e) => console.log(e));
-    // };
-    // const postPointsOnClick = (points) => {
-    //     axios.post(`${process.env.REACT_APP_SERVER}/users`, {
-    //         userEmail: user.email,
-    //         points: points,
-    //     })
-    //     .then((res) => console.log(res.data))
-    //     .catch((e) => console.log(e));
-    // };
-
     return (
         <div className={`flex flex-col w-full ${show? "bottom-0" : "-bottom-700px"} h-fit px-5 py-8 duration-300 absolute z-50 left-0 bg-gray-50 dark:bg-gray-500 top-raduis`}>
             <div className='w-full flex items-center justify-between pb-8'>
@@ -60,67 +43,6 @@ export default function Checkout() {
                 <HiXMark onClick={()=>{dispatch(reversePay(false))}} className='text-2xl text-txt-main dark:text-white cursor-pointer'/>
             </div>
             <ul className="w-full flex flex-col divide-y divide-solid divide-e2 dark:divide-slate-400">
-                <li className="flex items-center justify-between w-full pb-5">
-                    <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
-                            if (toggle !== 1) {
-                                updateToggle(1)
-                            }else {
-                                updateToggle(0)
-                            }
-                        }}>Delivery</p>
-                    </div>
-                    <div className='flex items-center w-fit h-full gap-2'>
-                        <p className='text-txt-main dark:text-white text-base font-semibold'>Select Method</p>
-                        <FaAngleRight className={`${toggle === 1 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
-                            if (toggle !== 1) {
-                                updateToggle(1)
-                            }else {
-                                updateToggle(0)
-                            }
-                        }}/>
-                    </div>
-                </li>
-                <li className={`${toggle === 1 ? "flex" : "hidden"} w-full py-5`}>
-                    <div className="grid grid-cols-2 gap-5 w-full h-full">
-                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">home delivery</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">mailbox delivery</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">pick-up point</p>
-                        <p className="text-txt-main dark:text-white text-sm capitalize cursor-pointer">instant delivery</p>
-                    </div>
-                </li>
-
-                {/* ------------------------------------------ */}
-
-                <li className="flex items-center justify-between w-full py-5">
-                    <div>
-                        <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
-                            if (toggle !== 2) {
-                                updateToggle(2)
-                            }else {
-                                updateToggle(0)
-                            }
-                        }}>Payment</p>
-                    </div>
-                    <div className="flex items-center w-fit gap-2">
-                        <div className="w-fit h-fit px-2 bg-blue-500">
-                            <img src={master} alt="Mastercard" className="w-5 h-5"/>
-                        </div>
-                        <FaAngleRight className={`${toggle === 2 ? "rotate-90" : ""} text-xl text-txt-main dark:text-white duration-300 cursor-pointer`} onClick={()=>{
-                            if (toggle !== 2) {
-                                updateToggle(2)
-                            }else {
-                                updateToggle(0)
-                            }
-                        }}/>
-                    </div>
-                </li>
-                <li className={`${toggle === 2 ? "flex" : "hidden"} w-full py-5`}>
-                    <ChooseMethode/>
-                </li>
-
-                {/* ------------------------------------------ */}
-
                 <li className="flex items-center justify-between w-full py-5">
                     <div>
                         <p className='text-7c dark:text-e2 text-base font-semibold cursor-pointer' onClick={()=>{
@@ -151,7 +73,7 @@ export default function Checkout() {
                         }
                     }}>
                         <input 
-                            type="text" 
+                            type="number" 
                             name="promo-code" 
                             placeholder="Add Promo code" 
                             className="block h-8 pl-2.5 placeholder:text-7c placeholder:text-sm dark:placeholder:text-e2 placeholder:font-medium bg-transparent border-b border-solid border-main dark:border-purple-500 focus:outline-none text-base text-txt-main font-semibold caret-txt-main dark:text-white dark:caret-e2 w-full" 
@@ -215,8 +137,6 @@ export default function Checkout() {
                     console.log(orderTime);
                     dispatch(addToOrdersHistory({price: (subTotal + delivery - discount).toFixed(2), time: orderTime}))
                     dispatch(addPoints(+subTotal / 20))
-                    // postOrderOnClick()
-                    // postPointsOnClick(+subTotal / 20)
                     dispatch(removePromoCode(code))
                 }}>
                 Place order

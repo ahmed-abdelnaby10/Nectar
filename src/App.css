@@ -112,3 +112,57 @@ input[type = search]::-webkit-search-cancel-button {
   width: 16px !important;
   border-radius: 8px !important;
 }
+.toggle {
+  width: 32px;
+  height: 16px;
+  background-color: #e2e2e2;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  transition: 0.3s;
+  border: 1px solid #C2E183;
+}
+.control:checked + .toggle {
+  background-color: #53B175;
+}
+.control:checked + .toggle::before {
+  content: "";
+  left: 16px;
+}
+.custom-radio::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e2e2e2;
+  border-radius: 50%;
+}
+.country-controll:checked + .custom-radio::before {
+  background-color: #53B175;
+  border-color: #53B175;
+}
+.custom-radio > div {
+  display: none;
+}
+.country-controll:checked + .custom-radio > div {
+  position: absolute;
+    display: block;
+    top: -6px;
+    right: 2px;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+}

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { bestSelling } from "../../utils/bestSelling"
 import { exOffers } from "../../utils/exOffers"
 import { groceries, legumes } from "../../utils/groceries"
-import { FaAngleLeft } from "react-icons/fa"
-import { IoShareOutline } from "react-icons/io5";
 import ProductDetails from "./ProductDetails"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../rtk/slices/cart-slice"
@@ -12,10 +10,12 @@ import UpdateFavorite from "../favorites/UpdateFavorite"
 import { products } from "../../utils/products"
 import ProductQuantity from "./ProductQuantity"
 import Footer from "../Footer"
+import { IoIosArrowBack } from "react-icons/io"
+import { BsCart3 } from "react-icons/bs"
+import { GrShareOption } from "react-icons/gr"
 
 export default function Product() {
-    // products data from api response
-    // const products = useSelector((state)=> state.products)
+    const cartProducts = useSelector((state)=> state.cart)
     const dispatch = useDispatch()
     const { productTitle } = useParams()
     const { searchedProductTitle } = useParams()
@@ -27,7 +27,11 @@ export default function Product() {
                 setProduct(products.filter((p)=>p.title === searchedProductTitle)[0])
             }
         })
-        // all conditions below doesnot matter when use api response products just the one above
+        products.map((prod)=>{
+            if (prod.title === productTitle) {
+                setProduct(products.filter((p)=>p.title === productTitle)[0])
+            }
+        })
         bestSelling.map((prod)=>{
             if (prod.title === productTitle) {
                 setProduct(bestSelling.filter((p)=>p.title === productTitle)[0])
@@ -52,9 +56,15 @@ export default function Product() {
     return (
         <div className="flex items-center justify-start flex-col min-h-screen pb-24">
             <div className="bg-sec-color dark:bg-slate-600 bottom-raduis w-full pt-5 h-72 pb-10 flex flex-col items-center relative">
-                <div className="flex items-center justify-between px-5 dark:text-white text-txt-main text-2xl w-full">
-                    <button onClick={()=>navigate(-1)}><FaAngleLeft/></button>
-                    <Link><IoShareOutline/></Link>
+            <div className="flex items-center justify-between px-5 dark:text-white text-txt-main text-2xl w-full">
+                    <button onClick={()=>navigate(-1)} className="w-6 h-6 bg-white rounded-full border border-solid border-e2 flex items-center justify-center"><IoIosArrowBack className="w-4 pr-0.5"/></button>
+                    <div className="flex items-center justify-end w-fit gap-2.5">
+                        <button className="w-6 h-6 bg-white rounded-full border border-solid border-e2 flex items-center justify-center relative">
+                            <BsCart3 className="w-4 pr-0.5"/>
+                            <div className="absolute -right-1 -top-1 w-4 h-4 rounded-full bg-red-500 text-white text-10px flex items-center justify-center">+{cartProducts.length}</div>
+                        </button>
+                        <button className="w-6 h-6 bg-white rounded-full border border-solid border-e2 flex items-center justify-center"><GrShareOption className="w-4 pr-0.5"/></button>
+                    </div>
                 </div>
                 <div className="h-52 w-44">
                     <img src={product.image} alt={product.title} className="w-full h-full" />

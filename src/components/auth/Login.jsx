@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import carrot from '../../assests/carrot.png'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { addUser } from '../../rtk/slices/user-slice';
 // import axios from "axios";
 export default function Login() {
@@ -43,8 +43,8 @@ export default function Login() {
                 }} 
                 className='w-full flex flex-col items-start mt-20'
             >
-                <h1 className='text-txt-main text-2xl font-semibold mb-2.5'>Loging</h1>
-                <p className='text-7c text-base'>Enter your emails and password</p>
+                <h1 className='text-txt-main text-2xl font-semibold mb-2.5'>Login</h1>
+                <p className='text-7c text-base'>Enter your email and password</p>
                 <div className="flex flex-col items-start w-full mt-10">
                     <label htmlFor="email" className="text-7c text-base font-medium">Email</label>
                     <input
@@ -56,6 +56,9 @@ export default function Login() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
+                        onInvalid={(e)=>{
+                            e.preventDefault()
+                        }}
                     />
                 </div>
                 <div className='flex flex-col items-start w-full mt-5'>
@@ -72,6 +75,9 @@ export default function Login() {
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            onInvalid={(e)=>{
+                                e.preventDefault()
+                            }}
                         />
                         {show?
                         <FaEye onClick={()=>{setShow(false)}} className='absolute right-2.5 top-3 text-txt-main cursor-pointer'/>
@@ -82,7 +88,7 @@ export default function Login() {
                 <Link to="/sign-in/forgot-password" className='self-end text-txt-main text-sm mt-5'>Forgot Password?</Link>
                 <input type="submit" value="Login" className="bg-main rounded-3xl cursor-pointer text-white w-full h-btn flex items-center justify-center mt-5 text-sm tracking-wider" />
             </form>
-            <p className='text-txt-main text-sm font-semibold mt-5'>Don’t have an account? <Link to="/sign-up" className='text-main'>Singup</Link></p>
+            <p className='text-txt-main text-sm mt-5'>Don’t have an account? <Link to="/sign-up" className='text-main font-semibold'>Singup</Link></p>
         </div>
     )
 }

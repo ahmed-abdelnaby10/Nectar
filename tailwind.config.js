@@ -77,6 +77,9 @@ module.exports = {
       rotate:{
         '30': '30deg',
         '60': '60deg',
+      },
+      fontSize: {
+        '10px': '10px'
       }
     },
   },

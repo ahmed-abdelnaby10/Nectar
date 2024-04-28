@@ -2,6 +2,7 @@ import { FaAngleLeft, FaBars, FaFileArchive } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { IoBarcodeSharp } from "react-icons/io5";
+import { IoIosArrowBack } from 'react-icons/io';
 
 
 export default function ScanGo() {
@@ -11,7 +12,7 @@ export default function ScanGo() {
   return (
     <div className='flex flex-col items-center justify-between gap-5 pt-5 min-h-screen'>
         <div className="flex items-center justify-between relative w-full px-5">
-            <button onClick={()=>navigate(-1)}><FaAngleLeft className="text-2xl text-txt-main dark:text-white"/></button>
+        <button onClick={()=>navigate(-1)} className='w-6 h-6 bg-white rounded-full border border-solid border-7c flex items-center justify-center'><IoIosArrowBack className="w-4 text-txt-main dark:text-white"/></button>
             <Link to="/account/scan&go/user-guide" className="text-lg text-main font-semibold capitalize dark:text-white">How it works?</Link>
         </div>
         <div className='flex flex-col items-center justify-center grow w-full h-full gap-5 px-5'>

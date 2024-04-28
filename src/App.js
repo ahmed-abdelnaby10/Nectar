@@ -33,17 +33,23 @@ import ScanGoMore from './components/Account/ScanGoMore';
 import Orders from './components/Account/Orders';
 import Address from './components/Account/Address';
 import Coupons from './components/Account/Coupons';
+import NotFound from './components/offline components/Notfound';
+import { Offline, Online } from 'react-detect-offline';
+import OfflinePage from './components/offline components/Offline';
+import Privacy from './components/Account/Privacy';
+import TermsOfServices from './components/Account/TermsOfServices';
+import About from './components/Account/About';
+import Country from './components/Account/Country';
+import { useDispatch } from 'react-redux';
+import { fetchCountries } from './rtk/slices/countries-slice';
 // import { fetchOrders } from './rtk/slices/order-slice';
 
 function App() {
   const currentRoute = useLocation().pathname
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
   useEffect(()=>{
-    // dispatch(fetchOffers())
-    // dispatch(fetchProducts())
-    // dispatch(fetchCategories())
-    // dispatch(fetchOrders())
+    dispatch(fetchCountries())
     setTimeout(() => {
       setIsLoading(false)
     }, 3000);
@@ -55,41 +61,51 @@ function App() {
     }
   return (
     <div className='tab:border tab:border-solid tab:border-e2 tab:rounded-radius relative dark:bg-slate-700'>
-      <Routes>
-        <Route path='/' element={<Welcome/>}/>
-        <Route path='/sign-in/verify-phone' element={<VerificationPhone/>}/>
-        <Route path='/sign-in/enter-phone' element={<EnterPhone/>}/>
-        <Route path='/sign-in/location' element={<Location/>}/>
-        <Route path='/sign-in/forgot-password' element={<ForgetPass/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/sign-up' element={<SignUp/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route 
-          path={`/home/${currentRoute.includes("search")? "search" : "categories"}/:categoryTitle`} element={<AllProducts/>}
-        /> 
-        <Route path='/home/:productTitle' element={<Product/>}/>
-        <Route path='/home/search' element={<Explore/>}/>
-        <Route path='/home/cart' element={<Cart/>}/>
-        <Route path='/home/cart/payment-success' element={<Success/>}/>
-        <Route path='/home/cart/payment-failed' element={<Failed/>}/>
-        <Route path='/home/favourites' element={<Favourites/>}/>
+      <Online>
+        <Routes>
+          <Route path='/' element={<Welcome/>}/>
+          <Route path='/sign-in/verify-phone' element={<VerificationPhone/>}/>
+          <Route path='/sign-in/enter-phone' element={<EnterPhone/>}/>
+          <Route path='/sign-in/location' element={<Location/>}/>
+          <Route path='/sign-in/forgot-password' element={<ForgetPass/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/sign-up' element={<SignUp/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route 
+            path={`/home/${currentRoute.includes("search")? "search" : "categories"}/:categoryTitle`} element={<AllProducts/>}
+          /> 
+          <Route path='/home/:productTitle' element={<Product/>}/>
+          <Route path='/home/search' element={<Explore/>}/>
+          <Route path='/home/cart' element={<Cart/>}/>
+          <Route path='/home/cart/payment-success' element={<Success/>}/>
+          <Route path='/home/cart/payment-failed' element={<Failed/>}/>
+          <Route path='/home/favourites' element={<Favourites/>}/>
 
-        {/* Account Page Routes */}
+          {/* Account Page Routes */}
 
-        <Route path='/account' element={<Account/>}/>
-        <Route path='/account/profile-information' element={<Profile/>}/>
-        <Route path='/account/scan&go' element={<ScanGo/>}/>
-        <Route path='/account/scan&go/user-guide' element={<ScanGoGuide/>}/>
-        <Route path='/account/scan&go/more' element={<ScanGoMore/>}/>
-        <Route path='/account/my-club' element={<MyClub/>}/>
-        <Route path='/account/transaction-history' element={<TransactionHistory/>}/>
-        <Route path='/account/orders' element={<Orders/>}/>
-        <Route path='/account/addresses' element={<Address/>}/>
-        <Route path='/account/coupons' element={<Coupons/>}/>
+          <Route path='/account' element={<Account/>}/>
+          <Route path='/account/profile-information' element={<Profile/>}/>
+          <Route path='/account/scan&go' element={<ScanGo/>}/>
+          <Route path='/account/scan&go/user-guide' element={<ScanGoGuide/>}/>
+          <Route path='/account/scan&go/more' element={<ScanGoMore/>}/>
+          <Route path='/account/my-club' element={<MyClub/>}/>
+          <Route path='/account/transaction-history' element={<TransactionHistory/>}/>
+          <Route path='/account/orders' element={<Orders/>}/>
+          <Route path='/account/addresses' element={<Address/>}/>
+          <Route path='/account/coupons' element={<Coupons/>}/>
+          <Route path='/account/country' element={<Country/>}/>
+          <Route path='/terms-of-service' element={<TermsOfServices/>}/>
+          <Route path='/privacy-policy' element={<Privacy/>}/>
+          <Route path='/about-nectar' element={<About/>}/>
 
+          <Route path='*' element={<NotFound/>}/>
 
-        <Route path='/home/search/:categoryTitle/:searchedProductTitle' element={<Product/>}/>
-      </Routes>
+          <Route path='/home/search/:categoryTitle/:searchedProductTitle' element={<Product/>}/>
+        </Routes>
+      </Online>
+      <Offline>
+        <OfflinePage />
+      </Offline>
     </div>
   )
 }

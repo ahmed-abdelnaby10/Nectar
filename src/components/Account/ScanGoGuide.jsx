@@ -8,13 +8,14 @@ import { FaAngleLeft } from 'react-icons/fa6';
 import slide1 from "../../assests/scan&go/Screenshot 2024-02-21 204724.png"
 import slide2 from "../../assests/scan&go/slide2.png"
 import slide3 from "../../assests/scan&go/slide3.png"
+import { IoIosArrowBack } from 'react-icons/io';
 
 export default function ScanGoGuide() {
     const navigate = useNavigate()
     return (
         <div className='h-screen flex flex-col items-center justify-start gap-10 pt-5'>
             <div className="flex items-center justify-between relative w-full px-5">
-                <button onClick={()=>navigate("/account")}><FaAngleLeft className="text-2xl text-txt-main dark:text-white"/></button>
+            <button onClick={()=>navigate(-1)} className='w-6 h-6 bg-white rounded-full border border-solid border-7c flex items-center justify-center'><IoIosArrowBack className="w-4 text-txt-main dark:text-white"/></button>
                 <Link to="/account/scan&go" className="text-lg text-main font-semibold capitalize dark:text-white">skip</Link>
             </div>
             <h1 className='text-5xl oleo-font text-main text-center border-b-4 border-solid border-red-500'>Scan&go</h1>

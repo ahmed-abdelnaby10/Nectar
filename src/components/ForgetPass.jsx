@@ -4,7 +4,7 @@ import { FaLock } from "react-icons/fa";
 
 export default function ForgetPass() {
     return (
-        <div className='main-page flex flex-col items-center h-850 px-5'>
+        <div className='main-page flex flex-col items-center h-screen px-5'>
             <Link to="/login" className="self-start"><FaAngleLeft className="text-txt-main text-2xl mb-16 mt-10"/></Link>
             <FaLock className="text-8xl text-carrot"/>
             <div className="mt-10">

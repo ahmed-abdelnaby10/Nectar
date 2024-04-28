@@ -22,6 +22,11 @@ export default function ProductDetails() {
                 setProduct(products.filter((p)=>p.title === searchedProductTitle)[0])
             }
         })
+        products.map((prod)=>{
+            if (prod.title === productTitle) {
+                setProduct(products.filter((p)=>p.title === productTitle)[0])
+            }
+        })
         // all conditions below doesnot matter when use api response products just the one above
         bestSelling.map((prod)=>{
             if (prod.title === productTitle) {

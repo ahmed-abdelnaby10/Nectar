@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Footer from "../Footer"
 import { useSelector } from "react-redux"
 import clubImg from "../../assests/myclub.png"
+import { IoIosArrowBack } from 'react-icons/io'
 
 export default function MyClub() {
     const navigate = useNavigate()
@@ -12,9 +13,9 @@ export default function MyClub() {
     return (
         <div className="flex flex-col items-center justify-start gap-5 px-5 pt-5 pb-24 min-h-screen">
             <div className="flex items-center justify-between relative w-full">
-                <button onClick={()=>navigate(-1)}><FaAngleLeft className="text-2xl text-txt-main dark:text-white"/></button>
+            <button onClick={()=>navigate(-1)} className='w-6 h-6 bg-white rounded-full border border-solid border-7c flex items-center justify-center'><IoIosArrowBack className="w-4 text-txt-main dark:text-white"/></button>
                 <h1 className="text-lg text-txt-main font-semibold capitalize dark:text-white">MyCLUB Card</h1>
-                <div className='rounded-full flex items-center justify-center w-10 h-10 overflow-hidden bg-center bg-cover' style={{backgroundImage:`url(${country})`}}>
+                <div className='rounded-full flex items-center justify-center w-10 h-10 overflow-hidden bg-center bg-cover' style={{backgroundImage:`url(${country.flag})`}}>
                 </div>
             </div>
             <div className='rounded-xl shadow-custom flex flex-col items-center justify-between bg-main/60 dark:bg-purple-500/60'>

@@ -14,6 +14,7 @@ import countrySlice from "./slices/country-slice";
 // import categoriesSlice from "./slices/categories-slice";
 import transactionHistorySlice from "./slices/transactionHistory-slice";
 import promoCodesSlice from "./slices/promoCodes-slice";
+import countriesSlice from "./slices/countries-slice";
 // import ordersSlice from "./slices/order-slice";
 
 const presistConfig = {
@@ -33,6 +34,7 @@ const reducers = combineReducers({
   user: userSlice,
   points: clubPointsSlice,
   country: countrySlice,
+  countries: countriesSlice,
   history: transactionHistorySlice,
   // orders: ordersSlice,
   promoCodes: promoCodesSlice,

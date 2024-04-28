@@ -134,10 +134,10 @@ export default function SignUp() {
                         }
                     </div>
                 </div>
-                <p className='text-7c text-sm mt-5'>By continuing you agree to our. <Link to="" className='text-main'>Terms of Service</Link> and <Link to="" className='text-main'>Privacy Policy</Link></p>
+                <p className='text-7c text-sm mt-5'>By continuing you agree to our. <Link to="/terms-of-service" className='text-main'>Terms of Service</Link> and <Link to="/privacy-policy" className='text-main'>Privacy Policy</Link></p>
                 <input type="submit" value="Sign up" className="bg-main rounded-3xl cursor-pointer text-white w-full h-btn flex items-center justify-center mt-5 text-sm tracking-wider" />
             </form>
-            <p className='text-txt-main text-sm font-semibold mt-5'>Already have an account? <Link to="/login" className='text-main'>Login</Link></p>
+            <p className='text-txt-main text-sm mt-5'>Already have an account? <Link to="/login" className='text-main font-semibold'>Login</Link></p>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Footer from "../Footer"
 import { BiSolidDiscount } from "react-icons/bi";
 import { useState } from 'react';
 import { addPromoCode } from '../../rtk/slices/promoCodes-slice';
+import { IoIosArrowBack } from 'react-icons/io';
 
 export default function Coupons() {
     const [show, setShow] = useState(false)
@@ -20,8 +21,8 @@ export default function Coupons() {
     return (
         <div className='flex flex-col items-center justify-start gap-5 px-5 pt-5 pb-24 min-h-screen bg-fc'>
             <div className="flex items-center justify-center relative w-full">
-                <button onClick={()=>navigate(-1)} className='absolute left-0'><FaAngleLeft className="text-2xl text-txt-main dark:text-white"/></button>
-                <h1 className="text-lg text-txt-main font-semibold capitalize dark:text-white">My Coupons</h1>
+                <button onClick={()=>navigate(-1)} className='absolute left-0 w-6 h-6 bg-white rounded-full border border-solid border-7c flex items-center justify-center'><IoIosArrowBack className="w-4 text-txt-main dark:text-white"/></button>
+                <h1 className="text-lg text-txt-main font-semibold capitalize dark:text-white">Coupons</h1>
             </div>
             <div className="w-full flex flex-col items-center justify-start grow gap-5 h-full">
                 {
